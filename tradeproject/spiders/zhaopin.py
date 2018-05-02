@@ -50,8 +50,7 @@ class ZhaopinSpider(scrapy.Spider):
                 item["company"] = company
                 item["salary"] = salary
                 item["status_value"] = status_value
-                item["status_value"] = status_value
 
                 items.append(item)
-        print("长度", len(items))
+        # print("长度", len(items))
         return items
