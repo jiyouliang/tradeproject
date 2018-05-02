@@ -8,7 +8,11 @@
 import scrapy
 
 
-class TradeprojectItem(scrapy.Item):
+class ZhaopinItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    position = scrapy.Field()
+    feeback = scrapy.Field()
+    company = scrapy.Field()
+    salary = scrapy.Field()
+    status_value = scrapy.Field()

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import scrapy
+from tradeproject.items import ZhaopinItem
 
 
 class ZhaopinSpider(scrapy.Spider):
@@ -15,6 +16,7 @@ class ZhaopinSpider(scrapy.Spider):
         table_list = response.xpath("//table[@class='newlist']")
         print("*" * 100)
 
+        items = []
         for table in table_list:
             # 标题
             if table_list.index(table) == 0:
@@ -27,6 +29,7 @@ class ZhaopinSpider(scrapy.Spider):
                 data_title = table.xpath(".//th[@class='gxsj']/text()").extract()[0]
                 print(position_title, company_title, feeback_title, salary_title, address_title, data_title)
             else:
+                item = ZhaopinItem()
                 # 职位
                 position = table.xpath(".//td[@class='zwmc']/div/a/text()").extract()[0].replace(u'\xa0', u'') if len(
                     table.xpath(".//td[@class='zwmc']/div/a/text()").extract()) > 0 else ""
@@ -41,3 +44,14 @@ class ZhaopinSpider(scrapy.Spider):
                 status_value = table.xpath(".//td[@class='gxsj']/span/text()").extract()[0] if len(
                     table.xpath(".//td[@class='gxsj']/span/text()").extract()) > 0 else ""
                 print(table_list.index(table), position, feeback, company, salary, status_value)
+
+                item["position"] = position
+                item["feeback"] = feeback
+                item["company"] = company
+                item["salary"] = salary
+                item["status_value"] = status_value
+                item["status_value"] = status_value
+
+                items.append(item)
+        print("长度", len(items))
+        return items
