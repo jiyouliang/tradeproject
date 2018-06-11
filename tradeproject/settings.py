@@ -39,9 +39,13 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'zh-CN,zh;q=0.9',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36',
+    'Host': 'www.toutiao.com',
+    'User-Agent': 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; 125LA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)',
+    'Connection': 'Keep-Alive',
+    'Content-Type': 'text/plain; Charset=UTF-8',
+    'Accept': '*/*',
+    'Accept-Language': 'zh-cn',
+    'cookie': '__tasessionId=u690hhtp21501983729114;cp=59861769FA4FFE1'
 }
 
 # Enable or disable spider middlewares
@@ -65,7 +69,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'tradeproject.pipelines.ZhaopinPipeline': 300,
+    'tradeproject.pipelines.ZhaopinPipeline': 3000,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -88,3 +92,11 @@ ITEM_PIPELINES = {
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# mysql config
+MYSQL_PORT = 3306
+MYSQL_HOST = "192.168.1.74"
+MYSQL_USER = "root"
+MYSQL_PWD = "12345678"
+MYSQL_DATABASE = "zhaopin"
+MYSQL_TABLE_ZHAOPIN = "zhilian"

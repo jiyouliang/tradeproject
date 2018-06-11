@@ -11,8 +11,12 @@ import scrapy
 class ZhaopinItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    detail_url = scrapy.Field()  # 详情页地址
     position = scrapy.Field()
     feeback = scrapy.Field()
     company = scrapy.Field()
     salary = scrapy.Field()
     status_value = scrapy.Field()
+    type_id = scrapy.Field()
+    recruit_num = scrapy.Field()
+    date = scrapy.Field()
